@@ -40,5 +40,29 @@ TEST(Visitortest, divtest){
     EXPECT_EQ(t->PrintLaTex(d), "${\\frac{({2}\\cdot{5})}{({5}^{2})}}$");
 }
 
+TEST(Visitortest, addsub1){
+    Base* left = new Op(5);
+    Base* right = new Op(0);
+    Base* s = new Sub(left, right);
+    Base* a = new Op(1);
+    Base* test = new Add (a,s);
+    VisitorLatex* t = new VisitorLatex();
+    EXPECT_EQ(t->PrintLaTex(test), "${({1}+{({5}-{0})})}$");
+}
 
+TEST(Visitortest, mult){
+    Base* left = new Op(2);
+    Base* right = new Op(5);
+    Base* test = new Mult(left, right);
+    VisitorLatex* t = new VisitorLatex();
+    EXPECT_EQ(t->PrintLaTex(test), "${({2}\cdot{5})}$");
+}
+
+TEST(Visitortest, divonlytest){
+    Base* left = new Op(2);
+    Base* right = new Op(3);
+    Base* p = new Div(left, right);
+    VisitorLatex* t = new VisitorLatex();
+    EXPECT_EQ(t->PrintLaTex(p), "${\frac{2}{3}}$");
+}
 #endif
