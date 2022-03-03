@@ -10,7 +10,8 @@ class Sub:public Base{
 		double l;
 		string rstr;
 		string lstr;
-		Base* le, ri;
+		Base* le;
+		Base* ri;
 	public:
 		Sub(Base* left, Base* right){
 			l=left->evaluate();

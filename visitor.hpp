@@ -1,6 +1,8 @@
 #ifndef __VISITOR_HPP__
 #define __VISITOR_HPP__
 
+
+//#include "base.hpp"
 class Op;
 class Rand;
 class Add;

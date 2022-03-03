@@ -55,7 +55,7 @@ TEST(Visitortest, mult){
     Base* right = new Op(5);
     Base* test = new Mult(left, right);
     VisitorLatex* t = new VisitorLatex();
-    EXPECT_EQ(t->PrintLaTex(test), "${({2}\cdot{5})}$");
+    EXPECT_EQ(t->PrintLaTex(test), "${({2}\\cdot{5})}$");
 }
 
 TEST(Visitortest, divonlytest){
@@ -63,6 +63,6 @@ TEST(Visitortest, divonlytest){
     Base* right = new Op(3);
     Base* p = new Div(left, right);
     VisitorLatex* t = new VisitorLatex();
-    EXPECT_EQ(t->PrintLaTex(p), "${\frac{2}{3}}$");
+    EXPECT_EQ(t->PrintLaTex(p), "${\\frac{2}{3}}$");
 }
 #endif

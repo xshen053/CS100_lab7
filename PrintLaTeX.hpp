@@ -7,6 +7,12 @@
 #include <iostream>
 #include <string>
 #include "Rand.hpp"
+#include "add.hpp"
+#include "div.hpp"
+#include "mult.hpp"
+#include "op.hpp"
+#include "pow.hpp"
+#include "sub.hpp"
 using namespace std;
 
 class VisitorLatex: public Visitor{
