@@ -17,7 +17,7 @@ class Rand: public Base {
 	}
 	virtual double evaluate() { return val;}
         virtual std::string stringify() { return str;}
-	virtual Base* get_child(int i) = 0;
+        virtual Base* get_child(int i){return NULL;}
         int number_of_children(){
 	    return 0;
 	}

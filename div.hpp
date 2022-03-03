@@ -49,7 +49,8 @@ class Div: public Base {
     private:
         double l, r;
         std::string lstr, rstr;
-	Base* le, ri;
+	Base* le;
+	Base* ri;
 
 };
 

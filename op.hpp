@@ -15,7 +15,7 @@ class Op : public Base {
         virtual double evaluate() { return num; }
         virtual std::string stringify() { return val; }
 	int number_of_children(){return 0;}
-	virtual Base* get_child(int i){};
+	virtual Base* get_child(int i){return NULL;}
 	void accept(Visitor* visitor, int index){
 	    visitor->visit_op(this);
 	}

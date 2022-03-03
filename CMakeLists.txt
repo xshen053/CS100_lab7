@@ -7,6 +7,7 @@ ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE(test
 	unit_test.cpp
+	iterator.cpp
 	
 )
 

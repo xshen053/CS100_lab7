@@ -10,7 +10,8 @@ class Pow:public Base{
 		std::string lstr;
             	std::string rstr;
 		std::string fin;
-		Base* le, ri;
+		Base* le;
+		Base* ri;
 	public:
 		Pow(Base* left, Base* right):Base(){
 			l=left->evaluate();
