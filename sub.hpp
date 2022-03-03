@@ -10,38 +10,49 @@ class Sub:public Base{
 		double l;
 		string rstr;
 		string lstr;
+		Base* le;
+                Base* ri;
 	public:
 		Sub(Base* left, Base* right){
 			l=left->evaluate();
 			r=right->evaluate();
 			rstr=left->stringify();
 			lstr=right->stringify();
+			le = left;
+			ri = right;
 		}
 		double evaluate(){return l - r;}
 		string stringify(){return "("+ rstr + " - " + lstr + ")";}
-                virtual int number_of_children(){
-                        return 2;
+                int number_of_children(){
+                    int num = 0;
+                    if(le != NULL){
+                        num++;
+                    }
+                    if(ri != NULL){
+                        num++;
+                    }
+                    return num;
                 }
-                virtual Base* get_child(int i){
-                        if (i == 0){
-                                return left;
-                        }
-                        if (i == 1){
-                                return right;
-                        }
-                        return nullptr;
+                Base* get_child(int i){
+                    if(i == 0){
+                        return le;
+                    }
+                    else if(i == 1){
+                        return ri;
+                    }
                 }
-		virtual void accept (Visitor* visitor, int index){
-                        if (index == 0){
-                                visitor->visit_sub_begin(this);
+                void accept(Visitor* visitor, int index){
+                    if(index == 0){
+                        visitor->visit_sub_begin(this);
+                    }
+                    if(index == 1){
+                        visitor->visit_sub_middle(this);
                         }
-                        else if (index == 1){
-                                visitor->visit_sub_middle(this);
-                        }
-                        else {
-                                visitor->visit_sub_end(this);
-                        }
-                }
+                    if(index == 2){
+                        visitor->visit_sub_end(this);
+                    }
+                 }
+
 };
 
 
