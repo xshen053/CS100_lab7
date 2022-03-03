@@ -20,11 +20,36 @@ TEST(DivTest, DivEvaluateWithMult) {
     EXPECT_EQ(test->evaluate(), 4);
 }
 
-TEST(DivTest, DivEvaluateOneDividesZero) {
-    Op* op1 = new Op(1);
-    Op* op2 = new Op(0);
-    Div* test = new Div(op1, op2);
-    EXPECT_NE(test->evaluate(), 1);
+TEST(DivTest, numChildren_typicalConstructor){
+	Base *test = nullptr, *x = nullptr, *y = nullptr;
+
+	x = new Op(4); y = new Op(8);
+	test = new Div(x, y);
+	EXPECT_EQ(test->number_of_children(), 2);
+
+}
+
+TEST(DivTest, numChildren_BlankConstructor){
+	Base *test = nullptr, *x = nullptr, *y = nullptr;
+
+	test = new Div();
+	EXPECT_EQ(test->number_of_children(), 0);
+}
+
+TEST(DivTest, getChild_twoChildren){
+	Base *test = nullptr, *x = nullptr, *y = nullptr;
+	
+	x = new Op(4);
+	y = new Op(8);
+	test = new Div(x, y);
+	EXPECT_EQ(test->get_child(0), x); 
+	EXPECT_EQ(test->get_child(1), y); 
+
+	// Anything other than 0 or 1 should return nullptr
+	EXPECT_EQ(test->get_child(5), nullptr);
+	EXPECT_EQ(test->get_child(-1), nullptr);
+
+	
 }
 
 #endif

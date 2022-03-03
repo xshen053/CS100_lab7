@@ -13,6 +13,7 @@ class Add:public Base{
 		Base* le;
 		Base* ri;
 	public:
+		Add(): Base(){}
 		Add(Base* left, Base* right){
 			l=left->evaluate();
 			r=right->evaluate();
@@ -40,6 +41,7 @@ class Add:public Base{
 		    else if(i == 1){
 		        return ri;
 		    }
+		    return nullptr;
 		}
                 void accept(Visitor* visitor, int index){
                     if(index == 0){
@@ -52,6 +54,9 @@ class Add:public Base{
                         visitor->visit_add_end(this);
                     }
                  }
+		virtual std::string print(){
+		    return "+";
+		}
 
 };
 #endif //_ADD_HPP_

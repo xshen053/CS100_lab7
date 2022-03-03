@@ -25,6 +25,10 @@ class Rand: public Base {
 	    visitor->visit_rand(this);
 	}
 
+	virtual std::string print(){
+	    return stringify();
+	}
+
     private:
         double val;
         std::string str;	

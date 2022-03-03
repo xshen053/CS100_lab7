@@ -19,6 +19,9 @@ class Op : public Base {
 	void accept(Visitor* visitor, int index){
 	    visitor->visit_op(this);
 	}
+	virtual std::string print(){
+	    return stringify();
+	}
     private:
 	std::string val;
 	double num;

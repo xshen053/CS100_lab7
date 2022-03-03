@@ -7,6 +7,7 @@
 
 class Div: public Base {
     public:
+	Div(): Base(){}    
         Div(Base* left, Base* right): Base() {
             l = left->evaluate();
             r = right->evaluate();
@@ -34,6 +35,7 @@ class Div: public Base {
                     else if(i == 1){
                         return ri;
                     }
+		    return nullptr;
                 }
         void accept(Visitor* visitor, int index){
 	    if(index == 0){
@@ -46,6 +48,9 @@ class Div: public Base {
 	        visitor->visit_div_end(this);
 	    }
 	}
+        virtual std::string print(){
+	    return "/";
+	}	
     private:
         double l, r;
         std::string lstr, rstr;

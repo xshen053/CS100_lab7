@@ -46,6 +46,7 @@ class Pow:public Base{
                     else if(i == 1){
                         return ri;
                     }
+		    return nullptr;
                 }
 		void accept(Visitor* visitor, int index){
                     if(index == 0){
@@ -58,6 +59,9 @@ class Pow:public Base{
                         visitor->visit_pow_end(this);
                     }
                  }
+		virtual std::string print(){
+		    return "**";
+		}
 
 
 };

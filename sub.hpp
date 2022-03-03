@@ -40,6 +40,7 @@ class Sub:public Base{
                     else if(i == 1){
                         return ri;
                     }
+		    return nullptr;
                 }
                 void accept(Visitor* visitor, int index){
                     if(index == 0){
@@ -52,6 +53,9 @@ class Sub:public Base{
                         visitor->visit_sub_end(this);
                     }
                  }
+		virtual std::string print(){
+		    return "-";
+		}
 
 };
 

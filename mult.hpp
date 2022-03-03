@@ -34,6 +34,7 @@ class Mult: public Base {
              else if(i == 1){
                  return ri;
              }
+	     return nullptr;
          }
 	 void accept(Visitor* visitor, int index){
             if(index == 0){
@@ -46,6 +47,9 @@ class Mult: public Base {
                 visitor->visit_mult_end(this);
             }
         }
+	 virtual std::string print(){
+	     return "*";
+	 }
 
     private:
         double l, r;

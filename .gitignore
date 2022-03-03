@@ -5,3 +5,4 @@ CMakeCache.txt
 cmake_install.cmake
 test
 Makefile
+a.out
